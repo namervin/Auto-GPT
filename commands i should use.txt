@@ -1,0 +1,5 @@
+docker-compose build auto-gpt
+
+docker-compose run auto-gpt --use-memory=pinecone
+
+commented out redis in docker-compose.yml per https://docs.agpt.co/setup/#running-auto-gpt
