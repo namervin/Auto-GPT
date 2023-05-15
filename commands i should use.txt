@@ -1,3 +1,5 @@
+CD C:\Users\Vinnie\Documents\GitHub\Auto-GPT
+
 docker-compose build auto-gpt
 
 docker-compose run auto-gpt --use-memory=pinecone
