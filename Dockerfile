@@ -22,7 +22,7 @@ ENV PATH="$PATH:/root/.local/bin"
 COPY requirements.txt .
 
 # Set the entrypoint
-ENTRYPOINT ["python", "-m", "autogpt"]
+ENTRYPOINT ["python", "-m", "autogpt", "--install-plugin-deps"]
 
 # dev build -> include everything
 FROM autogpt-base as autogpt-dev
@@ -35,5 +35,7 @@ FROM autogpt-base as autogpt-release
 RUN pip install --no-cache-dir -r requirements.txt
 WORKDIR /app
 ONBUILD COPY autogpt/ ./autogpt
+ONBUILD COPY scripts/ ./scripts
+ONBUILD COPY plugins/ ./plugins
 
 FROM autogpt-${BUILD_TYPE} AS auto-gpt
